@@ -440,14 +440,32 @@ async def resetall_h(event):
         await event.reply("✅ **FULL RESET DONE!**")
     except Exception as e:
         await event.reply(f"❌ {str(e)[:200]}")
-        else "").strip()
-        u["tg_username"] = me.username or "None"
-        u["login_time"] = datetime.now().strftime("%d %b %Y, %I:%M %p")
-        await save_user(uid, u)
-        if uid not in all_users_db:
-            await track_start(uid, u["tg_name"], u["tg_username"])
-        pending_clients.pop(uid, None)
-        await start_ub(uid, u["session_string"])
+        @bot.on(events.NewMessage(pattern='/resetall'))
+async def resetall_h(event):
+    if event.sender_id != OWNER_ID:
+        return
+    try:
+        for uid in list(user_bots.keys()):
+            try:
+                await user_bots[uid].disconnect()
+            except Exception:
+                pass
+            del user_bots[uid]
+
+        if users_col is not None:
+            await users_col.delete_many({})
+        if all_users_col is not None:
+            await all_users_col.delete_many({})
+
+        users_db.clear()
+        all_users_db.clear()
+        user_data_cache.clear()
+        broadcast_history.clear()
+
+        await event.reply("✅ **FULL RESET DONE!**")
+
+    except Exception as e:
+        await event.reply(f"❌ {str(e)[:200]}")
         await event.reply(
             f"🎉 **USERBOT ACTIVE!**\n"
             f"━━━━━━━━━━━━━━━━━━━━━\n\n"
