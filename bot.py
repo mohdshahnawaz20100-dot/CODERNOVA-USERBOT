@@ -240,7 +240,7 @@ async def cleanup_temp_loop():
         await asyncio.sleep(3600)
 
 def get_user(uid):
-    START_MEDIA, caption=caption, parse_mode='markdown', supports_streaming=True)
+    START_MEDIA,caption=caption, parse_mode='markdown', supports_streaming=True)
     except Exception:
         try:
             await bot.send_file(event.chat_id, START_MEDIA, caption=caption)
