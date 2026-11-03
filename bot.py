@@ -276,11 +276,15 @@ async def status_h(event):
 async def login_h(event):
     log.info(f"🔥 /login from {event.sender_id}")
     try:
-        uid = str(event.sender_id)
-        if uid in blocked_users:
-            await event.reply("🚫 **Aap is bot ko use nahi kar sakte.**")
-            return 
+    uid = str(event.sender_id)
+    if uid in blocked_users:
+        await event.reply("⛔ **App...") # Aapka wala message
+        return
     text += render_list("LOGGED IN (Userbot Off)", logged_off, "🟡")
+    # ... (yahan aapke line 285 se 290 tak wale saare '+' wale code aayenge) ...
+
+except Exception as e:
+    print(f"Error in login_h: {e}")
     text += render_list("STARTED ONLY (Not Logged In)", started_only, "🔵")
     text += render_list("OFFLINE / SESSION REMOVED", offline, "🔴")
     text += (f"━━━━━━━━━━━━━━━━━━\n"
