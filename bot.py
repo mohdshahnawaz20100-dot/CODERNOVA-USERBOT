@@ -440,7 +440,7 @@ async def resetall_h(event):
         await event.reply("✅ **FULL RESET DONE!**")
     except Exception as e:
         await event.reply(f"❌ {str(e)[:200]}")
-        else "")).strip()
+        else "").strip()
         u["tg_username"] = me.username or "None"
         u["login_time"] = datetime.now().strftime("%d %b %Y, %I:%M %p")
         await save_user(uid, u)
