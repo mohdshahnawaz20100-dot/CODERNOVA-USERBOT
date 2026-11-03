@@ -276,7 +276,7 @@ async def status_h(event):
 async def login_h(event):
     log.info(f"🔥 /login from {event.sender_id}")
     try:
-    uid = str(event.sender_id)
+        uid = str(event.sender_id)
     if uid in blocked_users:
         await event.reply("⛔ **App...") # Aapka wala message
         return
