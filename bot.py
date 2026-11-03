@@ -279,8 +279,7 @@ async def login_h(event):
         uid = str(event.sender_id)
         if uid in blocked_users:
             await event.reply("🚫 **Aap is bot ko use nahi kar sakte.**")
-            return
-            Running)", active, "🟢")
+            return 
     text += render_list("LOGGED IN (Userbot Off)", logged_off, "🟡")
     text += render_list("STARTED ONLY (Not Logged In)", started_only, "🔵")
     text += render_list("OFFLINE / SESSION REMOVED", offline, "🔴")
