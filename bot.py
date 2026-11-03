@@ -1683,9 +1683,29 @@ event.message.id
             await asyncio.sleep(1)
             await msg.edit(f"🦋🌸✨\n💫 **{text}** 💫\n✨🌸🦋", parse_mode='markdown')
         except: pass
-                # ═══════════════ FANCY TEXT ═══════════════
-    FANCY_WORDS = ["hi", "hey", "bye", "welcome", "ok", "yes", "wow", "cool", "omg", "lol", "love", "hate", "sad", "good", "bad", "best", "go", "fire", "boss"]
-        async def weather_cmd(event):
+                ╚╗║║║║ ║   ╠╣
+╚╝╝╝╝╩ ╩╝╩═╝
+😄🎀😄🎀😄🎀 """,
+        "il": """╔══╗....<3
+╚╗╔╝..('\\../')
+╔╝╚╗..( •.• )
+╚══╝..(,,)(,,)
+╔╗╔═╦╦╦═╗ ╔╗╔╗
+║╚╣║║║║╩╣ ║╚╝║
+╚═╩═╩═╩═╝ ╚══╝ """
+    }
+
+    def _register_art(key, art):
+        @cmd(key, delete_cmd=True)
+        async def art_handler(event, a=art):
+            await reply_to_target(event, a)
+
+    for _key, _art in ART_TEXTS.items():
+        _register_art(_key, _art)
+
+    # ═══════════════ PUBLIC FEATURES ═══════════════
+    @cmd('weather', owner_only=True, delete_cmd=False)
+    async def weather_cmd(event):
         city = get_args(event.message)
         if not city:
             await event.reply("❌ **Usage:** `.weather city`"); return
@@ -1724,25 +1744,108 @@ event.message.id
                 url = f"https://newsapi.org/v2/everything?q={query}&apiKey={NEWS_API_KEY}&language=en&sortBy=publishedAt&pageSize=5"
             else:
                 url = f"https://newsapi.org/v2/top-headlines?country=in&apiKey={NEWS_API_KEY}&pageSize=5"
-            async with aiohttp.ClientSession() as session:
-                async with session.get(url) as resp:
-                    if resp.status == 200:
-                        data = await resp.json()
-                        articles = data.get('articles', [])
-                        if not articles:
-                            await event.reply(f"❌ No news found."); return
-                        articles = articles[:5]
-                        location = query.title() if query else "India"
-                        current_time = datetime.now().strftime("%d %b %Y, %I:%M %p")
-                        msg = f"**📰 Latest News - {location}**\n🕐 {current_time}\n" + "═" * 30 + "\n\n"
-                        for i, article in enumerate(articles, 1):
-                            title = article.get('title', 'No title')
-                            source = article.get('source', {}).get('name', 'Unknown')
-                            published = article.get('publishedAt', '')
-                            time_str = ""
-                            if published:
-                                try:
-                                    pub_time = datetime.fromisoformat(published.replace('Z', '+00:00'))
-                                    time_str = pub_time.strftime("%I:%M %p")
-                                except: pass
-                                
+            async with 
+                        async with aiohttp.ClientSession() as s:
+                async with s.get(url) as r:
+                    if r.status != 200:
+                        await msg.edit("❌ City not found"); return
+                    data = await r.json()
+            text = f"🌤️ **5-Day Forecast: {data['city']['name']}**\n\n"
+            daily = {}
+            for item in data['list']:
+                date = item['dt_txt'].split()[0]
+                if date not in daily: daily[date] = item
+            for date, item in list(daily.items())[:5]:
+                temp = item['main']['temp']
+                desc = item['weather'][0]['description'].title()
+                emoji_map = {'clear': '☀️', 'clouds': '☁️', 'rain': '🌧️', 'snow': '❄️', 'thunderstorm': '⛈️', 'drizzle': '🌦️', 'mist': '🌫️'}
+                em = '🌤️'
+                for k, v in emoji_map.items():
+                    if k in desc.lower(): em = v; break
+                text += f"**{date}** {em} {temp}°C — {desc}\n"
+            await msg.edit(text, parse_mode='markdown')
+        except Exception as e:
+            await msg.edit(f"❌ Error: `{str(e)[:200]}`")
+
+    @cmd('aqi', owner_only=True, delete_cmd=False)
+    async def aqi_cmd(event):
+        city = get_args(event.message)
+        if not city:
+            await event.reply("❌ Usage: `.aqi <city>`"); return
+        msg = await event.reply("🌫️ Loading AQI...")
+        try:
+            geo_url = f"http://api.openweathermap.org/geo/1.0/direct?q={city}&limit=1&appid={WEATHER_API_KEY}"
+            async with aiohttp.ClientSession() as s:
+                async with s.get(geo_url) as r:
+                    geo = await r.json()
+            if not geo:
+                await msg.edit("❌ City not found"); return
+            lat, lon = geo[0]['lat'], geo[0]['lon']
+            aqi_url = f"http://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid={WEATHER_API_KEY}"
+            async with aiohttp.ClientSession() as s:
+                async with s.get(aqi_url) as r:
+                    data = await r.json()
+            aqi = data['list'][0]['main']['aqi']
+            components = data['list'][0]['components']
+            levels = {1: "🟢 Good", 2: "🟡 Fair", 3: "🟠 Moderate", 4: "🔴 Poor", 5: "⚫ Very Poor"}
+            text = (f"🌫️ **AQI: 
+            {city.title()}**\n\n**Air Quality:** {levels.get(aqi, 'Unknown')} ({aqi}/5)\n\n**Pollutants:**\n• PM2.5: {components.get('pm2_5', 0)} µg/m³\n• PM10: {components.get('pm10', 0)} µg/m³\n• NO₂: {components.get('no2', 0)} µg/m³\n• O₃: {components.get('o3', 0)} µg/m³\n• CO: {components.get('co', 0)} µg/m³")
+            await msg.edit(text, parse_mode='markdown')
+        except Exception as e:
+            await msg.edit(f"❌ Error: `{str(e)[:200]}`")
+
+
+# ═══════════════ STARTUP ═══════════════
+async def main():
+    asyncio.create_task(health_server())
+    asyncio.create_task(cleanup_temp_loop())
+    mongo_ok = await init_mongo()
+    if mongo_ok:
+        await load_all()
+        async def delayed_cleanup():
+            await asyncio.sleep(5)
+            await cleanup_old_command_logs()
+        asyncio.create_task(delayed_cleanup())
+        asyncio.create_task(auto_cleanup_loop())
+    else:
+        log.warning("⚠️ No MongoDB — data will be lost")
+
+    asyncio.create_task(get_ghost_image_path())
+
+    me = await bot.get_me()
+    log.info(f"✅ Bot: @{me.username}")
+    log.info(f"👑 Owner: {OWNER_ID}")
+
+    restored = 0
+    failed = 0
+    for uid, u in list(users_db.items()):
+        if u.get("logged_in") and u.get("session_string"):
+            if uid in blocked_users:
+                continue
+            try:
+                await start_ub(uid, u["session_string"])
+                restored += 1
+            except Exception as e:
+                failed += 1
+                log.error(f"Restore {uid}: {e}")
+
+    log.info(f"✅ Restored {restored} userbot(s)")
+    if failed:
+        log.warning(f"⚠️ Failed to restore: {failed} userbot(s)")
+    log.info(f"🚫 Blocked users: {len(blocked_users)}")
+    log.info(f"📊 Command usage tracked: {len(command_usage_db)} users")
+    log.info("⚙️ Type .help in Telegram.")
+    await bot.run_until_disconnected()
+
+
+if __name__ == '__main__':
+    print("=" * 45)
+    print("  CODERNOVA MULTI-USER USERBOT")
+    print("=" * 45)
+    try:
+        bot.loop.run_until_complete(main())
+    except KeyboardInterrupt:
+        log.info("🛑 Stopped.")
+    except Exception as e:
+        log.error(f"Fatal: {e}")
+        
