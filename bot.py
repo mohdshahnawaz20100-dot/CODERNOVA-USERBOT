@@ -45,7 +45,7 @@ MONGO_URI    = os.getenv("MONGO_URI", "")
 WEATHER_API_KEY = os.getenv("WEATHER_API_KEY", "1e74d518ef89c703e791594f953df2a4")
 NEWS_API_KEY    = os.getenv("NEWS_API_KEY", "c25f877f4c654be7980fee363be93302")
 GROQ_API_KEY    = os.getenv("GROQ_API_KEY", "")
-    DATA_DIR = Path(os.getenv("DATA_DIR", "/tmp/clonex_data"))
+DATA_DIR = Path(os.getenv("DATA_DIR", "/tmp/clonex_data"))
 DATA_DIR.mkdir(exist_ok=True, parents=True)
 TEMP_DIR = DATA_DIR / "temp"
 TEMP_DIR.mkdir(exist_ok=True, parents=True)
