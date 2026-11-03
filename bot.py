@@ -600,8 +600,9 @@ def _parse_schedule_time(date_str: str, time_str: str):
         second=dt_time.second,
         tzinfo=IST_TZ,
 )
-    ┃ 🔇 𝐌𝐔𝐓𝐄 & 𝐑𝐄𝐒𝐓𝐑𝐈𝐂𝐓
-╰━━━━━━━━━━━━━━━━━━━━━━╯
+    """
+🔇 MUTE & RESTRICT
+"""
 ▸ .mute reply/@id — Local mute
 ▸ .unmute reply/@id — Unmute
 ▸ .gmute reply/@id — Global mute
