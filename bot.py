@@ -705,7 +705,7 @@ event.message.id
             await event.reply(
                 f"⚙️ **AI Reply Status**\n\n"
                 f"Enabled: `{ar.get('enabled', False)}`\n"
-                f"Approved users: `{len(ar.get('approved_users', []))}`\n"
+f"Approved users: `{len(ar.get('approved_users', []))}`\n"
                 f"Model: `openai/gpt-oss-120b`",
                 parse_mode='markdown'
             )
