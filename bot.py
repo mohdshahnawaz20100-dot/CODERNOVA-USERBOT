@@ -603,15 +603,14 @@ def _parse_schedule_time(date_str: str, time_str: str):
     """
 🔇 MUTE & RESTRICT
 """
-▸ .mute reply/@id — Local mute
-▸ .unmute reply/@id — Unmute
-▸ .gmute reply/@id — Global mute
-▸ .gunmute reply/@id — Global unmute
-▸ .lock — Lock group
-▸ .unlock — Unlock group
-▸ .ban reply/@id — Ban user
-▸ .unban reply/@id — Unban user
-
+.mute reply/@id - Local mute
+.unmute reply/@id - Unmute
+.gmute reply/@id - Global mute
+.gunmute reply/@id - Global unmute
+.lock - Lock group
+.unlock - Unlock group
+.ban reply/@id - Ban user
+.unban reply/@id - Unban user
 ╭━━━━━━━━━━━━━━━━━━━━━━╮
 ┃ 👥 𝐆𝐑𝐎𝐔𝐏 𝐌𝐎𝐃
 ╰━━━━━━━━━━━━━━━━━━━━━━╯
