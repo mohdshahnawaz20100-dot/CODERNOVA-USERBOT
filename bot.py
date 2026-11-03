@@ -611,49 +611,49 @@ def _parse_schedule_time(date_str: str, time_str: str):
 .unlock - Unlock group
 .ban reply/@id - Ban user
 .unban reply/@id - Unban user
-👥 𝐆𝐑𝐎𝐔𝐏 𝐌𝐎𝐃
-▸ .tagall <text> — Tag all members
-▸ .tagall2 <text> — Tag members one by one
-▸ .stoptag — Stop tagall/tagall2
-▸ .raid <count> — Raid (with emojis)
-▸ .purge — Delete all messages below replied
-▸ .throw reply/@id — Kick user
-▸ .stop — Stop all raids, spam & fastgc
+𝐆𝐑𝐎𝐔𝐏 𝐌𝐎𝐃
+.tagall <text> — Tag all members
+.tagall2 <text> — Tag members one by one
+.stoptag — Stop tagall/tagall2
+.raid <count> — Raid (with emojis)
+.purge — Delete all messages below replied
+.throw reply/@id — Kick user
+.stop — Stop all raids, spam & fastgc
 
 ✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ @iVILLAINi ✨"""
 
         part2 = """
 ⚙️ 𝐔𝐒𝐄𝐑𝐁𝐎𝐓 𝐌𝐄𝐍𝐔 (𝟐/𝟐) ⚙️
-🤖 𝐀𝐈 𝐑𝐄𝐏𝐋𝐘
-▸ .aireply on/off — AI auto-reply ON/OFF
-▸ .aireply approve <reply/@id> — AI reply se exclude
-▸ .aireply remove <reply/@id> — Exclude hatado
-▸ .aireply list — AI approved users
-▸ .aireply status — Status check
+.𝐀𝐈 𝐑𝐄𝐏𝐋𝐘
+.aireply on/off — AI auto-reply ON/OFF
+.aireply approve <reply/@id> — AI reply se exclude
+.aireply remove <reply/@id> — Exclude hatado
+.aireply list — AI approved users
+.aireply status — Status check
 ⚙️ 𝐀𝐔𝐓𝐎 𝐒𝐘𝐒𝐓𝐄𝐌
-▸ .autoreact on/off — Auto-reaction in DMs
-▸ .autoreactg on/off — Auto-reaction in groups
-▸ .autoreply on/off — Auto reply
-▸ .autoreply set <text> — Set custom reply
-▸ .autoreply reset — Reset first-message list
-▸ .autoreply approve reply/@id — Approve user
-▸ .autoreply remove reply/@id — Remove approved user
-▸ .autoreply list — List approved users
-▸ .pmguard on/off — PM Guard (Default)
-▸ .pmguard set <2/3/4/6> — Custom PM Guard
-▸ .pmguard set off — Custom PM Guard OFF
-▸ .pmguard status — Show current settings
-▸ .approve reply/@user/id — Approve user (PM Guard)
-▸ .disapprove reply/@user/id — Disapprove user
-▸ .approvelist — List approved users
-▸ .blacklist reply/@id — Blacklist user
-▸ .removeblacklist reply/@id — Remove from blacklist
+.autoreact on/off — Auto-reaction in DMs
+.autoreactg on/off — Auto-reaction in groups
+.autoreply on/off — Auto reply
+.autoreply set <text> — Set custom reply
+.autoreply reset — Reset first-message list
+.autoreply approve reply/@id — Approve user
+.autoreply remove reply/@id — Remove approved user
+.autoreply list — List approved users
+.pmguard on/off — PM Guard (Default)
+.pmguard set <2/3/4/6> — Custom PM Guard
+.pmguard set off — Custom PM Guard OFF
+.pmguard status — Show current settings
+.approve reply/@user/id — Approve user (PM Guard)
+.disapprove reply/@user/id — Disapprove user
+.approvelist — List approved users
+.blacklist reply/@id — Blacklist user
+.removeblacklist reply/@id — Remove from blacklist
 🎯 𝐑𝐀𝐈𝐃 𝐄𝐍GINE
-▸ .reply reply/@id — Reply raid
-▸ .sreply — Stop reply raid
-▸ .rr reply/@id — 🤣 Raid
-▸ .srr — Stop RR
-▸ .flag reply/@id — Flag raid
+.reply reply/@id — Reply raid
+.sreply — Stop reply raid
+.rr reply/@id — 🤣 Raid
+.srr — Stop RR
+.flag reply/@id — Flag raid
 event.message.id
             def split_text(text, chunk_size=3900):
                 chunks = []
