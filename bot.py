@@ -277,8 +277,7 @@ async def login_h(event):
     log.info(f"🔥 /login from {event.sender_id}")
     try:
         uid = str(event.sender_id)
-        
-        if uid in blocked_users:
+    if uid in blocked_users:
             await event.reply("⛔ **Aap blocked hain.**")
             return
 
