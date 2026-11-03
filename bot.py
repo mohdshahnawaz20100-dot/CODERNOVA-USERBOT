@@ -601,8 +601,7 @@ def _parse_schedule_time(date_str: str, time_str: str):
         tzinfo=IST_TZ,
 )
     """
-🔇 MUTE & RESTRICT
-"""
+MUTE & RESTRICT
 .mute reply/@id - Local mute
 .unmute reply/@id - Unmute
 .gmute reply/@id - Global mute
@@ -611,17 +610,16 @@ def _parse_schedule_time(date_str: str, time_str: str):
 .unlock - Unlock group
 .ban reply/@id - Ban user
 .unban reply/@id - Unban user
-𝐆𝐑𝐎𝐔𝐏 𝐌𝐎𝐃
-.tagall <text> — Tag all members
-.tagall2 <text> — Tag members one by one
-.stoptag — Stop tagall/tagall2
-.raid <count> — Raid (with emojis)
-.purge — Delete all messages below replied
-.throw reply/@id — Kick user
-.stop — Stop all raids, spam & fastgc
 
-✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ @iVILLAINi ✨"""
-
+GROUP MOD
+.tagall <text> - Tag all members
+.tagall2 <text> - Tag members one by one
+.stoptag - Stop tagall/tagall2
+.raid <count> - Raid (with emojis)
+.purge - Delete all messages below reply
+.throw reply/@id - Kick user
+.stop - Stop all raids, spam & fastgc
+"""
         part2 = """
 ⚙️ 𝐔𝐒𝐄𝐑𝐁𝐎𝐓 𝐌𝐄𝐍𝐔 (𝟐/𝟐) ⚙️
 .𝐀𝐈 𝐑𝐄𝐏𝐋𝐘
