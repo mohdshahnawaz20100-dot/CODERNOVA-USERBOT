@@ -240,13 +240,13 @@ async def cleanup_temp_loop():
         await asyncio.sleep(3600)
 
 def get_user(uid):
-    START_MEDIA,caption=caption, parse_mode='markdown', supports_streaming=True)
-    except Exception:
-        try:
-            await bot.send_file(event.chat_id, START_MEDIA, caption=caption)
-        except Exception:
-            await event.reply(caption, parse_mode='markdown')
-
+    uid = str(uid)
+    return users_db.get(uid, {
+        "logged_in": False,
+        "tg_name": "N/A",
+        "tg_id": uid,
+        "login_time": "N/A"
+    })
 @bot.on(events.NewMessage(pattern='/help'))
 async def help_h(event):
     uid = event.sender_id
