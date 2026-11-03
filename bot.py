@@ -611,9 +611,7 @@ def _parse_schedule_time(date_str: str, time_str: str):
 .unlock - Unlock group
 .ban reply/@id - Ban user
 .unban reply/@id - Unban user
-╭━━━━━━━━━━━━━━━━━━━━━━╮
-┃ 👥 𝐆𝐑𝐎𝐔𝐏 𝐌𝐎𝐃
-╰━━━━━━━━━━━━━━━━━━━━━━╯
+👥 𝐆𝐑𝐎𝐔𝐏 𝐌𝐎𝐃
 ▸ .tagall <text> — Tag all members
 ▸ .tagall2 <text> — Tag members one by one
 ▸ .stoptag — Stop tagall/tagall2
@@ -624,22 +622,15 @@ def _parse_schedule_time(date_str: str, time_str: str):
 
 ✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ @iVILLAINi ✨"""
 
-        part2 = """╭━━━━━━━━━━━━━━━━━━━━╮
+        part2 = """
 ⚙️ 𝐔𝐒𝐄𝐑𝐁𝐎𝐓 𝐌𝐄𝐍𝐔 (𝟐/𝟐) ⚙️
-╰━━━━━━━━━━━━━━━━━━━━╯
-
-╭━━━━━━━━━━━━━━━━━━━━━━╮
-┃ 🤖 𝐀𝐈 𝐑𝐄𝐏𝐋𝐘
-╰━━━━━━━━━━━━━━━━━━━━━━╯
+🤖 𝐀𝐈 𝐑𝐄𝐏𝐋𝐘
 ▸ .aireply on/off — AI auto-reply ON/OFF
 ▸ .aireply approve <reply/@id> — AI reply se exclude
 ▸ .aireply remove <reply/@id> — Exclude hatado
 ▸ .aireply list — AI approved users
 ▸ .aireply status — Status check
-
-╭━━━━━━━━━━━━━━━━━━━━━━╮
-┃ ⚙️ 𝐀𝐔𝐓𝐎 𝐒𝐘𝐒𝐓𝐄𝐌
-╰━━━━━━━━━━━━━━━━━━━━━━╯
+⚙️ 𝐀𝐔𝐓𝐎 𝐒𝐘𝐒𝐓𝐄𝐌
 ▸ .autoreact on/off — Auto-reaction in DMs
 ▸ .autoreactg on/off — Auto-reaction in groups
 ▸ .autoreply on/off — Auto reply
@@ -657,10 +648,7 @@ def _parse_schedule_time(date_str: str, time_str: str):
 ▸ .approvelist — List approved users
 ▸ .blacklist reply/@id — Blacklist user
 ▸ .removeblacklist reply/@id — Remove from blacklist
-
-╭━━━━━━━━━━━━━━━━━━━━━━╮
-┃ 🎯 𝐑𝐀𝐈𝐃 𝐄𝐍𝐆𝐈𝐍𝐄
-╰━━━━━━━━━━━━━━━━━━━━━━╯
+🎯 𝐑𝐀𝐈𝐃 𝐄𝐍GINE
 ▸ .reply reply/@id — Reply raid
 ▸ .sreply — Stop reply raid
 ▸ .rr reply/@id — 🤣 Raid
