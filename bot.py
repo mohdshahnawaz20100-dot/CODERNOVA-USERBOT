@@ -1696,7 +1696,7 @@ f"Approved users: `{len(ar.get('approved_users', []))}`\n"
 ╔╗╔═╦╦╦═╗ ╔╗╔╗
 ║╚╣║║║║╩╣ ║╚╝║
 ╚═╩═╩═╩═╝ ╚══╝ """
-    }
+ 
 
     def _register_art(key, art):
         @cmd(key, delete_cmd=True)
