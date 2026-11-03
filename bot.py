@@ -277,17 +277,31 @@ async def login_h(event):
     log.info(f"🔥 /login from {event.sender_id}")
     try:
         uid = str(event.sender_id)
-    if uid in blocked_users:
-        await event.reply("⛔ **App...") # Aapka wala message
-        return
-    text += render_list("LOGGED IN (Userbot Off)", logged_off, "🟡")
-    # ... (yahan aapke line 285 se 290 tak wale saare '+' wale code aayenge) ...
+        
+        if uid in blocked_users:
+            await event.reply("⛔ **Aap blocked hain.**")
+            return
 
-except Exception as e:
-    print(f"Error in login_h: {e}")
-    text += render_list("STARTED ONLY (Not Logged In)", started_only, "🔵")
-    text += render_list("OFFLINE / SESSION REMOVED", offline, "🔴")
-    text += (f"━━━━━━━━━━━━━━━━━━\n"
+        text = ""
+        text += render_list("LOGGED IN (Userbot Off)", logged_off, "🟡")
+        text += render_list("STARTED ONLY (Userbot On)", started_only, "🔵")
+        text += render_list("OFFLINE / SESSION", offline_users, "⚪")
+        
+        text += (
+            f"\n───────────────\n"
+            f"📊 **Summary**\n"
+            f"🟢 Active: `{len(active_users)}`\n"
+            f"🟡 Logged (off): `{len(logged_off)}`\n"
+            f"🔵 Started only: `{len(started_only)}`\n"
+        )
+        
+        # Yahan aapka message bhejne ka code aayega, agar hai toh. 
+        # Agar aage koi await event.reply(text) ya edit wala code hai, 
+        # toh use isi try block ke andar, is line ke neeche rakhein.
+
+    except Exception as e:
+        print(f"Error in login_h: {e}")
+        await event.reply(f"⚠️ Error aaya: {e}")
              f"📊 **Summary**\n"
              f"🟢 Active: `{len(active)}`\n"
              f"🟡 Logged (off): `{len(logged_off)}`\n"
