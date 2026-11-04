@@ -275,7 +275,7 @@ async def status_h(event):
 @bot.on(events.NewMessage(pattern='/login'))
 async def login_h(event):
     log.info(f"🔥 /login from {event.sender_id}")
-    try:
+    try: except:
         uid = str(event.sender_id)
     if uid in blocked_users:
             await event.reply("⛔ **Aap blocked hain.**")
