@@ -397,6 +397,14 @@ async def unblock_h(event):
             
     target_id = str(target_id)
     
+    # --- Yahan se asli unblock ka logic shuru hota hai ---
+    if target_id in blocked_users:
+        blocked_users.remove(target_id)
+        await event.reply(f"✅ User `{target_id}` ko unblock kar diya gaya hai!")
+    else:
+        await event.reply(f"⚠️ Yeh user pehle se hi blocked nahi hai.")
+    target_id = str(target_id)
+    
     # --- Aapka aage ka unblock logic yahan aayega ---
     # Jaise: 
     # if target_id in blocked_users:
