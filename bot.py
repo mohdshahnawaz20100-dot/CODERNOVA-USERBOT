@@ -273,7 +273,6 @@ async def status_h(event):
         await event.reply("❌ Not logged in. `/login`")
 
 @bot.on(events.NewMessage(pattern='/login'))
-@bot.on(events.NewMessage(pattern='/login'))  # Apna pattern jo bhi ho
 async def login_h(event):
     log.info(f"🔥 /login from {event.sender_id}")
     
@@ -281,7 +280,7 @@ async def login_h(event):
         uid = str(event.sender_id)
         
         if uid in blocked_users:
-            await event.reply("⛔ **App Blocked**") # Yahan apna original message likh lein
+            await event.reply("⛔ **App Blocked**")
             return
             
         text = ""
@@ -295,20 +294,8 @@ async def login_h(event):
 
     except Exception as e:
         print(f"Error in login_h: {e}")
-        await event.reply(f"⚠️ Error aaya: {e}")    # <-- 4 space aage karein (Tab dabayein)
-    await event.reply(f"⚠️ Error aaya: {e}") # <-- 4 space aage karein
-    
-# Summary wala code try block ke andar hona chahiye, 
-# par agar aapko yahan bhejna hai toh aise likhein:
-try:
-    text = ""
-    text += "📊 **Summary**\n"
-    text += f"🟢 Active: `{len(active)}`\n"
-    text += f"🟡 Logged (off): `{len(logged_off)}`\n" # Apne variable ka naam check kar lena
-    text += f"🔵 Started only: `{len(started)}`\n" # Apne variable ka naam check kar lena
-    text += f"🔴 Offline: `{len(offline)}`\n" # Apne variable ka naam check kar lena
-    
-    await event.reply(text, parse_mode='html')
+        await event.reply(f"⚠️ Error aaya: {e}")
+        
 @bot.on(events.NewMessage(pattern=r'^/remove(\s+.*)?$'))
 async def remove_h(event):
     if event.sender_id != OWNER_ID:
