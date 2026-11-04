@@ -1741,17 +1741,32 @@ f"Approved users: `{len(ar.get('approved_users', []))}`\n"
             await msg.edit(f"╔═══════════════╗\n   ✨ **{text}** ✨\n╚═══════════════╝", parse_mode='markdown')
             await asyncio.sleep(1)
             await msg.edit(f"🦋🌸✨\n💫 **{text}** 💫\n✨🌸🦋", parse_mode='markdown')
-        except: pass
-                ╚╗║║║║ ║   ╠╣
-     ╚╝╝╝╝╩ ╩╝╩═╝
-    🥰🥰🥰🥰🥰🥰 """,
-    "il": """┌─┐... <3
-    ╚╦┐..(' \ ../')
-    ╔╦┐..( • • )
-    ╚╦┐..(,,)(,,)
-    ╔╦╦╦┐ ╔╦┐
-    ║║║║║ ║║
-    ╚╩╩╩╝ ╚╩╝   """,
+                    except: pass
+            
+            # Yahan se ASCII art ka dictionary shuru ho raha hai
+            # Dhyan de: "i1" ke pehle wali lines ko ek nayi key do, jaise "art1"
+            ascii_art = {
+                "art1": """
+┌─────────────┐
+│  █████████  │
+│  █       █  │
+│  █  ███  █  │
+│  █  █ █  █  │
+│  █  ███  █  │
+│  █       █  │
+│  █████████  │
+└─────────────┘
+😋😋😋😋😋😋 """,
+                
+                "i1": """ ┌─┐... <3
+└┬┘..( ' \ ../')
+ ┌┐..( • • )
+ └┬┘..(,,)(,,)
+ ┌───┐ ┌──┐
+ │││││ ││
+ └───┘ └──┘ """
+            } # Dictionary yahan band ho gayi
+            
  
 
     def _register_art(key, art):
