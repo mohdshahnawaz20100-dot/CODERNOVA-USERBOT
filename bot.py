@@ -368,7 +368,7 @@ async def bcast_h(event):
 async def delbroadcast_h(event):
     if event.sender_id != OWNER_ID:
         await event.reply("❌ Sirf owner."); return
-        @bot.on(events.NewMessage(pattern=r'^/unblock(\s+.*)?$'))
+@bot.on(events.NewMessage(pattern=r'^/unblock(\s+.*)?$'))
 async def unblock_h(event):
     if event.sender_id != OWNER_ID:
         return
@@ -397,7 +397,6 @@ async def unblock_h(event):
             
     target_id = str(target_id)
     
-    # --- Yahan se asli unblock ka logic shuru hota hai ---
     if target_id in blocked_users:
         blocked_users.remove(target_id)
         await event.reply(f"✅ User `{target_id}` ko unblock kar diya gaya hai!")
