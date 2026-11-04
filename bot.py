@@ -279,37 +279,23 @@ async def login_h(event):
     
     try:
         uid = str(event.sender_id)
+        
         if uid in blocked_users:
-            await event.reply("⛔ **App blocked!**")  # Yahan apna sahi message daalein
+            await event.reply("⛔ **App Blocked**") # Yahan apna original message likh lein
             return
             
         text = ""
-        text += render_list("LOGGED IN")
-        text += render_list("STARTED ON")
-        text += render_list("OFFLINE / ")
-        # ... aapka baaki ka code yahan aayega ...
+        text += "📊 **Summary**\n"
+        text += f"🟢 Active: `{len(active)}`\n"
+        text += f"🟡 Logged (off): `{len(logged)}`\n"
+        text += f"🔵 Started only: `{len(started)}`\n"
+        text += f"🔴 Offline: `{len(offline)}`\n"
         
-    except Exception as e:
-        log.error(f"Error: {e}")
-        text = ""
-        text += render_list("LOGGED IN (Userbot Off)", logged_off, "🟡")
-        text += render_list("STARTED ONLY (Userbot On)", started_only, "🔵")
-        text += render_list("OFFLINE / SESSION", offline_users, "⚪")
-        
-        text += (
-            f"\n───────────────\n"
-            f"📊 **Summary**\n"
-            f"🟢 Active: `{len(active_users)}`\n"
-            f"🟡 Logged (off): `{len(logged_off)}`\n"
-            f"🔵 Started only: `{len(started_only)}`\n"
-        )
-        
-        # Yahan aapka message bhejne ka code aayega, agar hai toh. 
-        # Agar aage koi await event.reply(text) ya edit wala code hai, 
-        # toh use isi try block ke andar, is line ke neeche rakhein.
+        await event.reply(text, parse_mode='html')
 
     except Exception as e:
-    print(f"Error in login_h: {e}")    # <-- 4 space aage karein (Tab dabayein)
+        print(f"Error in login_h: {e}")
+        await event.reply(f"⚠️ Error aaya: {e}")    # <-- 4 space aage karein (Tab dabayein)
     await event.reply(f"⚠️ Error aaya: {e}") # <-- 4 space aage karein
     
 # Summary wala code try block ke andar hona chahiye, 
