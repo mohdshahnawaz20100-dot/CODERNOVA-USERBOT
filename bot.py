@@ -278,7 +278,7 @@ async def login_h(event):
     try: except:
     uid = str(event.sender_id)
 if uid in blocked_users:
-    await event.reply("⛔ **App...
+    await event.reply("⛔ **App...")
     return
 
         text = ""
