@@ -1744,7 +1744,7 @@ f"Approved users: `{len(ar.get('approved_users', []))}`\n"
                     except: pass
             
                         # Safe and Simple ASCII Art
-            ascii_art = {
+                        ascii_art = {
                 "art1": """
 +-----------------+
 |   CODER NOVA    |
@@ -1754,8 +1754,7 @@ f"Approved users: `{len(ar.get('approved_users', []))}`\n"
 |    [         ]  |
 +-----------------+
 """,
-                               
-            } # Dictionary yahan band ho gayi
+}
             
  
 
