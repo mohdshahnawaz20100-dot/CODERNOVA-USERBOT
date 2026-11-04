@@ -309,16 +309,20 @@ async def login_h(event):
         # toh use isi try block ke andar, is line ke neeche rakhein.
 
     except Exception as e:
-        print(f"Error in login_h: {e}")
-        await event.reply(f"⚠️ Error aaya: {e}")
-             f"📊 **Summary**\n"
-             f"🟢 Active: `{len(active)}`\n"
-             f"🟡 Logged (off): `{len(logged_off)}`\n"
-             f"🔵 Started only: `{len(started_only)}`\n"
-             f"🔴 Offline: `{len(offline)}`\n"
-             await event.reply(f"⛔ Blocked: {len(blocked_users)}")
-    await event.reply(text, parse_mode='markdown')
-
+    print(f"Error in login_h: {e}")
+    await event.reply(f"⚠️ Error aaya: {e}")
+    
+# Summary wala code try block ke andar hona chahiye, 
+# par agar aapko yahan bhejna hai toh aise likhein:
+try:
+    text = ""
+    text += "📊 **Summary**\n"
+    text += f"🟢 Active: `{len(active)}`\n"
+    text += f"🟡 Logged (off): `{len(logged_off)}`\n" # Apne variable ka naam check kar lena
+    text += f"🔵 Started only: `{len(started)}`\n" # Apne variable ka naam check kar lena
+    text += f"🔴 Offline: `{len(offline)}`\n" # Apne variable ka naam check kar lena
+    
+    await event.reply(text, parse_mode='html')
 @bot.on(events.NewMessage(pattern=r'^/remove(\s+.*)?$'))
 async def remove_h(event):
     if event.sender_id != OWNER_ID:
