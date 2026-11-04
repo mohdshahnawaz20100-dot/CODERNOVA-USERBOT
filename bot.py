@@ -664,7 +664,7 @@ GROUP MOD
 .throw reply/@id - Kick user
 .stop - Stop all raids, spam & fastgc
 """
-        part2 = """
+part2 = """
 ⚙️ 𝐔𝐒𝐄𝐑𝐁𝐎𝐓 𝐌𝐄𝐍𝐔 (𝟐/𝟐) ⚙️
 .𝐀𝐈 𝐑𝐄𝐏𝐋𝐘
 .aireply on/off — AI auto-reply ON/OFF
