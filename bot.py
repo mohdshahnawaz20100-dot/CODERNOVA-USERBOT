@@ -241,7 +241,7 @@ async def cleanup_temp_loop():
 
 def get_user(uid):
     uid = str(uid)
-    return users_db.get(uid, {
+    return users_db.get(uid, {}) 
         "logged_in": False,
         "tg_name": "N/A",
         "tg_id": uid,
