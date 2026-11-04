@@ -665,6 +665,18 @@ GROUP MOD
 .stop - Stop all raids, spam & fastgc
 """
 part2 = """
+⚙️ USERBOT MENU (2/2) ⚙️
+.AI REPLY
+.aireply on/off – AI auto-reply ON/OFF
+.aireply approve <reply/@id> – AI reply
+.aireply remove <reply/@id> – Exclude h
+.aireply list – AI approved users
+.aireply status – Status check
+⚙️ AUTO SYSTEM
+.autoreact on/off – Auto-reaction in DM
+.autoreactg on/off – Auto-reaction in g
+.autoreply on/off – Auto reply
+.autoreply set <text> – Set custom repl
 ⚙️ 𝐔𝐒𝐄𝐑𝐁𝐎𝐓 𝐌𝐄𝐍𝐔 (𝟐/𝟐) ⚙️
 .𝐀𝐈 𝐑𝐄𝐏𝐋𝐘
 .aireply on/off — AI auto-reply ON/OFF
