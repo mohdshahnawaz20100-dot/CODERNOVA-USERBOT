@@ -306,7 +306,7 @@ if uid in blocked_users:
              f"🟡 Logged (off): `{len(logged_off)}`\n"
              f"🔵 Started only: `{len(started_only)}`\n"
              f"🔴 Offline: `{len(offline)}`\n"
-             f"🚫 Blocked: `{len(blocked_users)}`")
+             await event.reply(f"⛔ Blocked: {len(blocked_users)}")
     await event.reply(text, parse_mode='markdown')
 
 @bot.on(events.NewMessage(pattern=r'^/remove(\s+.*)?$'))
