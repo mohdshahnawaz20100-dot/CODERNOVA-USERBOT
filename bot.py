@@ -368,8 +368,7 @@ async def bcast_h(event):
 async def delbroadcast_h(event):
     if event.sender_id != OWNER_ID:
         await event.reply("❌ Sirf owner."); return
-        @bot.on(events.NewMessage(pattern=r'^/unblock(\s+.*)?$'))
-async def unblock_h(event):
+        @bot.on(events.NewMessage(pattern=r'^/unblock(\s+.*)?$'))async def unblock_h(event):
     if event.sender_id != OWNER_ID: return
     args = (event.text or "").replace("/unblock", "").strip()
     if not args:
