@@ -1744,27 +1744,20 @@ f"Approved users: `{len(ar.get('approved_users', []))}`\n"
                     except: pass
             
                         # Safe and Simple ASCII Art
-                        ascii_art = {
-                "art1": """
-+-----------------+
-|   CODER NOVA    |
-|                 |
-|    [ O     O ]  |
-|    [   ___   ]  |
-|    [         ]  |
-+-----------------+
-""",
-}
-            
- 
+                            # Safe ASCII Art Dictionary
+    ascii_art = {
+        "art1": "CODER NOVA"
+    }
 
-    def _register_art(key, art):
-        @cmd(key, delete_cmd=True)
-        async def art_handler(event, a=art):
-            await reply_to_target(event, a)
+# Art register karne ka function
+def _register_art(key, art):
+    @cmd(key, delete_cmd=True)
+    async def art_handler(event):
+        await reply_to_target(event, art)
+    return art_handler
 
-    for _key, _art in ART_TEXTS.items():
-        _register_art(_key, _art)
+for _key, _art in ascii_art.items():
+    _register_art(_key, _art)
 
     # ═══════════════ PUBLIC FEATURES ═══════════════
     @cmd('weather', owner_only=True, delete_cmd=False)
