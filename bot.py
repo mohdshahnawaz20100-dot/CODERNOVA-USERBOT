@@ -246,25 +246,25 @@ def get_user(uid):
         "tg_name": "N/A",
         "tg_id": uid,
         "login_time": "N/A"
-    })
 @bot.on(events.NewMessage(pattern='/help'))
 async def help_h(event):
-    uid = event.sender_id
-    if str(uid) in blocked_users:
+    if event.sender_id in blocked_users:
         return
-    base = ("🛑 ❛.𝁘ໍＣｌｏｎｅ Ｘ🎭.𝁘ໍ Bot\n"
-            "━━━━━━━━━━━━━━━━━━━━━\n\n"
-            "🔹 **Login:**\n• `/start`\n• `/login`\n• `/logout`\n• `/status`\n\n"
-            "🔹 **Userbot:**\nLogin ke baad kisi bhi chat me `.alive` bhejo\n\n")
-    if uid == OWNER_ID:
-        await event.reply(base + "👑 **Owner:**\n• `/users`\n• `/live`\n• `/remove <tg_id>`\n• `/broadcast <msg>`\n• `/delbroadcast`\n• `/stats`\n• `/block <id>`\n• `/unblock <id>`\n• `/blocked`\n• `/cmdstats`\n• `/userstats <id>`\n• `/cmdusage <cmd>`\n• `/blockcmd <id> <cmd>`\n• `/unblockcmd <id> <cmd>`\n• `/blockedcmds <id>`\n• `/cmdcleanup`\n• `/clearsessions`\n• `/resetusers`\n• `/resetall`\n\n"
-            "━━━━━━━━━━━━━━━━━━━━━\n✨ **ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠɪʟʟᴀɪɴ** 😎", parse_mode='markdown')
+    
+    base = ("🔴 **Clone X Bot**\n"
+            "-------------------------\n\n"
+            "🔹 **Login:** `/start` `/login`\n"
+            "🔹 **Userbot:** Login ke baad kisi bhi command ka use karein.\n\n")
+    
+    if event.sender_id == OWNER_ID:
+        await event.reply(base + "👑 **Owner:** Verified\n"
+                        "-------------------------\n✨ **POWERED BY CODERNOVA**")
     else:
-        await event.reply(base + "━━━━━━━━━━━━━━━━━━━━━\n✨ **ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠɪʟʟᴀɪɴ** 😎", parse_mode='markdown')
+        await event.reply(base + "-------------------------")
 
 @bot.on(events.NewMessage(pattern='/status'))
 async def status_h(event):
-    if str(event.sender_id) in blocked_users:
+    # yahan tumhara status ka aage ka code aayega
         return
     u = get_user(event.sender_id)
     if u["logged_in"]:
