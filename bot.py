@@ -369,9 +369,39 @@ async def delbroadcast_h(event):
     if event.sender_id != OWNER_ID:
         await event.reply("❌ Sirf owner."); return
         @bot.on(events.NewMessage(pattern=r'^/unblock(\s+.*)?$'))
-        async def unblock_h(event):
-    if event.sender_id != OWNER_ID: return
+async def unblock_h(event):
+    if event.sender_id != OWNER_ID:
+        return
+        
     args = (event.text or "").replace("/unblock", "").strip()
+    
+    if not args:
+        await event.reply("❌ `/unblock` command ke sath ID ya username likhein.")
+        return
+        
+    target_id = None
+    
+    if args.startswith("@"):
+        try:
+            user = await bot.get_entity(args)
+            target_id = user.id
+        except Exception:
+            await event.reply("❌ User nahi mila.")
+            return
+    else:
+        try:
+            target_id = int(args)
+        except Exception:
+            await event.reply("❌ Invalid ID.")
+            return
+            
+    target_id = str(target_id)
+    
+    # --- Aapka aage ka unblock logic yahan aayega ---
+    # Jaise: 
+    # if target_id in blocked_users:
+    #     blocked_users.remove(target_id)
+    #     await event.reply("✅ User unblocked!")
     if not args:
         await event.reply("❌ `/unblock <user_id/@username>`"); return
     target_id = None
