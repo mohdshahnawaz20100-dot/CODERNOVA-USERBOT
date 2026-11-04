@@ -273,14 +273,24 @@ async def status_h(event):
         await event.reply("❌ Not logged in. `/login`")
 
 @bot.on(events.NewMessage(pattern='/login'))
+@bot.on(events.NewMessage(pattern='/login'))  # Apna pattern jo bhi ho
 async def login_h(event):
     log.info(f"🔥 /login from {event.sender_id}")
-    try: except:
-    uid = str(event.sender_id)
-if uid in blocked_users:
-    await event.reply("⛔ **App...")
-    return
-
+    
+    try:
+        uid = str(event.sender_id)
+        if uid in blocked_users:
+            await event.reply("⛔ **App blocked!**")  # Yahan apna sahi message daalein
+            return
+            
+        text = ""
+        text += render_list("LOGGED IN")
+        text += render_list("STARTED ON")
+        text += render_list("OFFLINE / ")
+        # ... aapka baaki ka code yahan aayega ...
+        
+    except Exception as e:
+        log.error(f"Error: {e}")
         text = ""
         text += render_list("LOGGED IN (Userbot Off)", logged_off, "🟡")
         text += render_list("STARTED ONLY (Userbot On)", started_only, "🔵")
