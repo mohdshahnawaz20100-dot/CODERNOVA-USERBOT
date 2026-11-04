@@ -479,25 +479,28 @@ async def resetall_h(event):
         user_data_cache.clear()
         broadcast_history.clear()
         await event.reply("✅ **FULL RESET DONE!**")
-            except Exception as e:
-            await event.reply(f"❌ {str(e)}")
+    except Exception as e:
+        await event.reply(f"❌ {str(e)}")
 
-@bot.on(events.NewMessage(pattern=...))  # <-- Yahan apna pattern theek kar lena jo screen par cut gaya hai
+@bot.on(events.NewMessage(pattern=...)) 
 async def resettall_h(event):
     if event.sender_id != OWNER_ID:
         return
     try:
         for uid in list(user_bots.keys()):
             try:
-                await user_bots[uid].disconnect()  # <-- Agar aage kuch aur likha tha to wo add kar lena
+                await user_bots[uid].disconnect()
             except Exception:
                 pass
             del user_bots[uid]
 
         if users_col is not None:
-            await users_col.delete_many({})  # <-- Bracket ke andar apna filter daal lena agar zarurat ho
+            await users_col.delete_many({})
         if all_users_col is not None:
-            await all_users_col.delete_many({}) # <-- Yahan bhi wahi karna
+            await all_users_col.delete_many({})
+    except Exception as e:
+        # Agar yahan koi outer except hai toh yahan rakhna
+        pass 
         users_db.clear()
         all_users_db.clear()
         user_data_cache.clear()
