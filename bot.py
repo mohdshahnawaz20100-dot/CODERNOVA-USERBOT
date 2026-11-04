@@ -276,10 +276,10 @@ async def status_h(event):
 async def login_h(event):
     log.info(f"🔥 /login from {event.sender_id}")
     try: except:
-        uid = str(event.sender_id)
-    if uid in blocked_users:
-            await event.reply("⛔ **Aap blocked hain.**")
-            return
+    uid = str(event.sender_id)
+if uid in blocked_users:
+    await event.reply("⛔ **App...
+    return
 
         text = ""
         text += render_list("LOGGED IN (Userbot Off)", logged_off, "🟡")
