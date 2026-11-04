@@ -309,8 +309,8 @@ async def login_h(event):
         # toh use isi try block ke andar, is line ke neeche rakhein.
 
     except Exception as e:
-    print(f"Error in login_h: {e}")
-    await event.reply(f"⚠️ Error aaya: {e}")
+    print(f"Error in login_h: {e}")    # <-- 4 space aage karein (Tab dabayein)
+    await event.reply(f"⚠️ Error aaya: {e}") # <-- 4 space aage karein
     
 # Summary wala code try block ke andar hona chahiye, 
 # par agar aapko yahan bhejna hai toh aise likhein:
