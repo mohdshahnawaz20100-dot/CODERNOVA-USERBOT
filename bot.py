@@ -241,11 +241,12 @@ async def cleanup_temp_loop():
 
 def get_user(uid):
     uid = str(uid)
-    return users_db.get(uid, {}) 
+    return users_db.get(uid, {
         "logged_in": False,
         "tg_name": "N/A",
         "tg_id": uid,
         "login_time": "N/A"
+    })
 @bot.on(events.NewMessage(pattern='/help'))
 async def help_h(event):
     if event.sender_id in blocked_users:
