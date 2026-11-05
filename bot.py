@@ -1914,16 +1914,7 @@ import staypresent
 
 # Yeh Render ko batayega ki bot zinda hai
 staypresent.web.json({"status": "running"})
-
-# Bot ko background mein chalayega
-staypresent.run("bot.py")
-        bot.loop.run_until_complete(main())
-    except KeyboardInterrupt:
-        log.info("🛑 Stopped.")
-    except Exception as e:
-        log.error(f"Fatal: {e}")
-
-     """
+"""
 import staypresent
 staypresent.run("bot.py")
 import os
@@ -1941,3 +1932,7 @@ staypresent.run(
     max_restarts=10,       # Pehle 5 tha, isko badha kar 10 karein
     restart_delay=5.0      # Har restart se pehle 5 second wait karega
 )
+
+
+
+     
