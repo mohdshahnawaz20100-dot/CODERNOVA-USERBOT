@@ -25,7 +25,7 @@ from telethon.errors import (
 # ==========================================
 api_id = 37550071  # Yahan apna API ID daalein (bina quotes ke)
 api_hash = 'eca739f28db4f12737a0d418f4a77343'  # Yahan apna API Hash daalein
-bot_token =9253610796:AAEi8DBkPbB-5VBPQY6nLaPMYd8au-VonEs 'apna_naya_bot_token_yahan'  # Yahan apna naya Token daalein
+bot_token ='9253610796:AAEi8DBkPbB-5VBPQY6nLaPMYd8au-VonEs' # Yahan apna naya Token daalein
 
 # Bot ko initialize karna (Yeh line error ko fix karegi)
 bot = TelegramClient('bbu_session', api_id, api_hash).start(bot_token=bot_token)
