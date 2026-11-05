@@ -1,3 +1,19 @@
+from flask import Flask
+from threading import Thread
+import os
+
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "Bot is alive!"
+
+def run():
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
+
+def keep_alive():
+    t = Thread(target=run)
+    t.start()
 #!/usr/bin/env python3
 # CODERNOVA USERBOT - Multi-User Version (COMPLETE FINAL - PERFECT TIMING)
 
@@ -1948,26 +1964,25 @@ async def start_handler(event):
     await event.reply('Hello! Main active hoon.')
 
 # 3. Aapka main function
+# 3. Aapka main function
 async def main():
+    keep_alive()  # Render ko active rakhne ke liye
     print("Bot start ho raha hai...")
     # Ye line bot ko chalu rakhti hai jab tak disconnect na ho
     await client.run_until_disconnected() 
 
-# 4. YAHAN SE AAPKO PURANA CODE REPLACE KARNA HAI (File ke sabse niche)
+# 4. Bot ko Start aur Cleanly Band karne ka code
 if __name__ == '__main__':
     try:
         # Bot start karne ke liye
         client.start()
-        
-        # Bot ko run karne ke liye (Dhyan de: agar aapko 'client.loop' me error aaye, toh ise 'asyncio.run(main())' likh dena)
+        # Bot ko run karne ke liye (Agar yahan error aaye toh 'asyncio.run(main())' likhna)
         client.loop.run_until_complete(main())
         
     except Exception as e:
         print(f"Error aaya: {e}")
         
     finally:
-        # YEH SABSE ZAROORI HAI: Jab bot band ho (crash ho ya Render restart kare), toh yeh line usko peacefully band karegi
+        # Jab bot band ho, toh peacefully disconnect karega
         print("Bot ko band kiya ja raha hai cleanly...")
         client.loop.run_until_complete(client.disconnect())
-
-     
