@@ -1909,6 +1909,14 @@ if __name__ == '__main__':
     print("  CODERNOVA MULTI-USER USERBOT")
     print("=" * 45)
     try:
+    import os
+import staypresent
+
+# Yeh Render ko batayega ki bot zinda hai
+staypresent.web.json({"status": "running"})
+
+# Bot ko background mein chalayega
+staypresent.run("bot.py")
         bot.loop.run_until_complete(main())
     except KeyboardInterrupt:
         log.info("🛑 Stopped.")
