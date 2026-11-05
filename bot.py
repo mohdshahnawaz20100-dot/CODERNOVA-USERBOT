@@ -1926,3 +1926,17 @@ staypresent.run("bot.py")
      """
 import staypresent
 staypresent.run("bot.py")
+import os
+import staypresent
+
+# Render ko batayega ki bot zinda hai
+staypresent.web.json({"status": "running"})
+staypresent.cron("https://codernova-userbot-9utv.onrender.com", interval=240)
+
+# Bot ko background mein chalayega
+staypresent.run(
+    "bot.py",
+    port=int(os.getenv("PORT", 8080)),
+    restart_on_crash=True,
+    max_restarts=10
+)
