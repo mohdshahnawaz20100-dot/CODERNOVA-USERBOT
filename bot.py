@@ -265,12 +265,12 @@ async def help_h(event):
 
 @bot.on(events.NewMessage(pattern='/status'))
 async def status_h(event):
-    # yahan tumhara status ka aage ka code aayega
-        return
+    # Yahan se 'return' hata diya gaya hai taaki aage ka code chale
     u = get_user(event.sender_id)
     if u["logged_in"]:
-        await event.reply(f"✅ **Logged In**\n👤 `{u.get('tg_name','N/A')}`\n🆔 `{u.get('tg_id','N/A')}`\n🕐 `{u.get('login_time','N/A')}`", parse_mode='markdown')
+        await event.reply(f"✅ **Logged in**")
     else:
+        await event.reply("❌ Not logged in")
         await event.reply("❌ Not logged in. `/login`")
 
 @bot.on(events.NewMessage(pattern='/login'))
