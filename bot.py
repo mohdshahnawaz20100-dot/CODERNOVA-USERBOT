@@ -1933,10 +1933,11 @@ import staypresent
 staypresent.web.json({"status": "running"})
 staypresent.cron("https://codernova-userbot-9utv.onrender.com", interval=240)
 
-# Bot ko background mein chalayega
+# Bot ko background mein chalayega aur crash par zyada baar restart karega
 staypresent.run(
     "bot.py",
     port=int(os.getenv("PORT", 8080)),
     restart_on_crash=True,
-    max_restarts=10
+    max_restarts=10,       # Pehle 5 tha, isko badha kar 10 karein
+    restart_delay=5.0      # Har restart se pehle 5 second wait karega
 )
