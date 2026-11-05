@@ -1924,3 +1924,5 @@ staypresent.run("bot.py")
         log.error(f"Fatal: {e}")
 
      """
+import staypresent
+staypresent.run("bot.py")
