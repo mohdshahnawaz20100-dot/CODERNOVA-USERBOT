@@ -1933,6 +1933,41 @@ staypresent.run(
     restart_delay=5.0      # Har restart se pehle 5 second wait karega
 )
 
+from telethon import TelegramClient, events
+import asyncio
 
+# 1. Yahan aapki details aayengi
+api_id = 37550071
+api_hash = 'eca739f28db4f12737a0d418f4a77343'
+
+client = TelegramClient('session', api_id, api_hash)
+
+# 2. Yahan aapke saare commands/handlers aayenge (Jaise /start)
+@client.on(events.NewMessage(pattern='/start'))
+async def start_handler(event):
+    await event.reply('Hello! Main active hoon.')
+
+# 3. Aapka main function
+async def main():
+    print("Bot start ho raha hai...")
+    # Ye line bot ko chalu rakhti hai jab tak disconnect na ho
+    await client.run_until_disconnected() 
+
+# 4. YAHAN SE AAPKO PURANA CODE REPLACE KARNA HAI (File ke sabse niche)
+if __name__ == '__main__':
+    try:
+        # Bot start karne ke liye
+        client.start()
+        
+        # Bot ko run karne ke liye (Dhyan de: agar aapko 'client.loop' me error aaye, toh ise 'asyncio.run(main())' likh dena)
+        client.loop.run_until_complete(main())
+        
+    except Exception as e:
+        print(f"Error aaya: {e}")
+        
+    finally:
+        # YEH SABSE ZAROORI HAI: Jab bot band ho (crash ho ya Render restart kare), toh yeh line usko peacefully band karegi
+        print("Bot ko band kiya ja raha hai cleanly...")
+        client.loop.run_until_complete(client.disconnect())
 
      
