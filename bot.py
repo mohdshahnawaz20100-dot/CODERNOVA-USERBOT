@@ -492,7 +492,7 @@ async def resetall_h(event):
     except Exception as e:
         await event.reply(f"❌ {str(e)}")
 
-@bot.on(events.NewMessage(pattern=...)) 
+@bot.on(events.NewMessage(pattern='/resetall'))
 async def resettall_h(event):
     if event.sender_id != OWNER_ID:
         return
