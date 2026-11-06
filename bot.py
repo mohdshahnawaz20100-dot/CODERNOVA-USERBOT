@@ -4955,7 +4955,7 @@ async def main():
 
     asyncio.create_task(get_ghost_image_path())
 
-    # ✅ YE LINE ADD KARNI HAI (Iske bina bot start nahi hoga):
+    # ✅ YE LINE DHYAN SE YAHAN (4 SPACE CHHOD KAR) RAKHNI HAI:
     await bot.start(bot_token=BOT_TOKEN)
 
     me = await bot.get_me()
