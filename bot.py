@@ -877,8 +877,8 @@ async def login_flow(event):
             await event.reply("⏳ Client ban raha hai...")
             cli = TelegramClient(
                 StringSession(), API_ID, API_HASH,
-                device_model="❛.𝁘ໍＣｌｏｎｅ Ｘ🎭.𝁘ໍ",
-                system_version="VillainZBot",
+                device_model="𝕮𝕷𝕺𝕹𝕰 𝖃",
+                system_version="𝕮𝕷𝕺𝕹𝕰 𝖃bot",
                 app_version="1.0"
             )
             await cli.connect()
@@ -1017,8 +1017,8 @@ async def start_ub(uid, ss):
             request_retries=5,
             timeout=20,
             flood_sleep_threshold=120,
-            device_model="❛.𝁘ໍＣｌｏｎｅ Ｘ🎭.𝁘ໍ",
-            system_version="VillainZBot",
+            device_model="𝕮𝕷𝕺𝕹𝕰 𝖃",
+            system_version="𝕮𝕷𝕺𝕹𝕰 𝖃_bot",
             app_version="1.0",
             lang_code="en",
             system_lang_code="en-US",
