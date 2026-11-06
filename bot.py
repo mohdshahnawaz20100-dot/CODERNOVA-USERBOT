@@ -335,9 +335,9 @@ async def start_h(event):
                    "**💡 ɴᴏᴛᴇ:**\n"
                    "Apna userbot use karne ke liye kisi bhi chat me `.help` bhejo.\n\n"
                    "━━━━━━━━━━━━━━━━━━━━━\n"
-                   "✨ **ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠɪʟʟᴀɪɴ** 😎 ✨")
+                   "✨ **ᴘᴏᴡᴇʀᴇᴅ ʙʏ Shahnawazzz_7** 😎 ✨")
     else:
-        caption = ("🎉 ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ ᴄʟᴏɴᴇx ᴜsᴇʀʙᴏᴛ 🎉\n"
+        caption = ("🎉 ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ 𝕮𝕷𝕺𝕹𝕴𝖃 ᴜsᴇʀʙᴏᴛ 🎉\n"
                    "━━━━━━━━━━━━━━━━━━━━━\n\n"
                    "🛑 ʟᴏɢɪɴ sᴛᴇᴘs:\n\n"
                    "🔷  sᴇɴᴅ /ʟᴏɢɪɴ\n\n"
@@ -346,7 +346,7 @@ async def start_h(event):
                    "🔷  sᴇɴᴅ 𝟸ғᴀ ᴘᴀssᴡᴏʀᴅ (ɪғ ᴇɴᴀʙʟᴇᴅ)\n\n"
                    "━━━━━━━━━━━━━━━━━━━━━\n"
                    "🔐 ʀᴇᴀᴅʏ? ᴛʏᴘᴇ: /ʟᴏɢɪɴ\n\n"
-                   "✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠɪʟʟᴀɪɴ 😎 ✨")
+                   "✨ ᴘᴏᴡᴇʀᴇᴅ ʙʏ Shahnawazzz_7 😎 ✨")
     try:
         await bot.send_file(event.chat_id, START_MEDIA, caption=caption, parse_mode='markdown', supports_streaming=True)
     except Exception:
@@ -360,15 +360,15 @@ async def help_h(event):
     uid = event.sender_id
     if str(uid) in blocked_users:
         return
-    base = ("🛑 ❛.𝁘ໍＣｌｏｎｅ Ｘ🎭.𝁘ໍ Bot\n"
+    base = ("🛑 𝕮𝕷𝕺𝕹𝕴𝖃 Bot\n"
             "━━━━━━━━━━━━━━━━━━━━━\n\n"
             "🔹 **Login:**\n• `/start`\n• `/login`\n• `/logout`\n• `/status`\n\n"
             "🔹 **Userbot:**\nLogin ke baad kisi bhi chat me `.alive` bhejo\n\n")
     if uid == OWNER_ID:
         await event.reply(base + "👑 **Owner:**\n• `/users`\n• `/live`\n• `/remove <tg_id>`\n• `/broadcast <msg>`\n• `/delbroadcast`\n• `/stats`\n• `/block <id>`\n• `/unblock <id>`\n• `/blocked`\n• `/cmdstats`\n• `/userstats <id>`\n• `/cmdusage <cmd>`\n• `/blockcmd <id> <cmd>`\n• `/unblockcmd <id> <cmd>`\n• `/blockedcmds <id>`\n• `/cmdcleanup`\n• `/clearsessions`\n• `/resetusers`\n• `/resetall`\n\n"
-            "━━━━━━━━━━━━━━━━━━━━━\n✨ **ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠɪʟʟᴀɪɴ** 😎", parse_mode='markdown')
+            "━━━━━━━━━━━━━━━━━━━━━\n✨ **ᴘᴏᴡᴇʀᴇᴅ ʙʏ Shahnawazzz_7** 😎", parse_mode='markdown')
     else:
-        await event.reply(base + "━━━━━━━━━━━━━━━━━━━━━\n✨ **ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴠɪʟʟᴀɪɴ** 😎", parse_mode='markdown')
+        await event.reply(base + "━━━━━━━━━━━━━━━━━━━━━\n✨ **ᴘᴏᴡᴇʀᴇᴅ ʙʏ Shahnawazzz_7** 😎", parse_mode='markdown')
 
 @bot.on(events.NewMessage(pattern='/status'))
 async def status_h(event):
