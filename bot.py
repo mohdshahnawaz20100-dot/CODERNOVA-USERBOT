@@ -4937,7 +4937,6 @@ I LOVE ♥ YOUR
         except Exception as e:
             await msg.edit(f"❌ Error: `{str(e)[:200]}`")
 
-
 # ═══════════════ STARTUP ═══════════════
 async def main():
     asyncio.create_task(health_server())
@@ -4955,7 +4954,7 @@ async def main():
 
     asyncio.create_task(get_ghost_image_path())
 
-    # ✅ YE LINE DHYAN SE YAHAN (4 SPACE CHHOD KAR) RAKHNI HAI:
+    # ✅ BOT START KARNE KI LINE (Iski shuruwat mein 4 space hain, isko mat hatana):
     await bot.start(bot_token=BOT_TOKEN)
 
     me = await bot.get_me()
@@ -4981,28 +4980,8 @@ async def main():
     log.info(f"🚫 Blocked users: {len(blocked_users)}")
     log.info(f"📊 Command usage tracked: {len(command_usage_db)} users")
     log.info("⚙️ Type .help in Telegram.")
-    await bot.run_until_disconnected()
-    log.info(f"👑 Owner: {OWNER_ID}")
-
-    restored = 0
-    failed = 0
-    for uid, u in list(users_db.items()):
-        if u.get("logged_in") and u.get("session_string"):
-            if uid in blocked_users:
-                continue
-            try:
-                await start_ub(uid, u["session_string"])
-                restored += 1
-            except Exception as e:
-                failed += 1
-                log.error(f"Restore {uid}: {e}")
-
-    log.info(f"✅ Restored {restored} userbot(s)")
-    if failed:
-        log.warning(f"⚠️ Failed to restore: {failed} userbot(s)")
-    log.info(f"🚫 Blocked users: {len(blocked_users)}")
-    log.info(f"📊 Command usage tracked: {len(command_usage_db)} users")
-    log.info("⚙️ Type .help in Telegram.")
+    
+    # Ye line bot ko zinda rakhti hai
     await bot.run_until_disconnected()
 
 
@@ -5011,14 +4990,8 @@ if __name__ == '__main__':
     print("  CODERNOVA MULTI-USER USERBOT")
     print("=" * 45)
     try:
-        asyncio.run(main())   # <--- Yahan bot.loop.run_until_complete ki jagah asyncio.run likhna hai
+        asyncio.run(main())
     except KeyboardInterrupt:
         log.info("🛑 Stopped.")
     except Exception as e:
         log.error(f"Fatal: {e}")
-asyncio.create_task(get_ghost_image_path())
-
-# ✅ YE LINE ADD KARNI HAI (Iske bina bot connect nahi hoga):
-await bot.start(bot_token=BOT_TOKEN)
-
-me = await bot.get_me()
