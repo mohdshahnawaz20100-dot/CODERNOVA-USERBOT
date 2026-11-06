@@ -266,10 +266,10 @@ SESSION_DIR = Path("/tmp/clonex_session")
 SESSION_DIR.mkdir(exist_ok=True, parents=True)
 bot = TelegramClient(
     str(SESSION_DIR / "clonex_bot"), API_ID, API_HASH,
-    device_model="❛.𝁘ໍＣｌｏｎｅ Ｘ🎭.𝁘ໍ",
-    system_version="VillainZBot",
+    device_model="𝕮𝕷𝕺𝕹𝕴𝖃",      # Yahan apna bot name daalo
+    system_version="𝕮𝕷𝕺𝕹𝕴𝖃bot",       # Yahan kuch bhi likh sakte ho
     app_version="1.0"
-).start(bot_token=BOT_TOKEN)
+)
 pending_clients = {}
 user_bots = {}
 broadcast_history = []
@@ -4955,8 +4955,33 @@ async def main():
 
     asyncio.create_task(get_ghost_image_path())
 
+    # ✅ YE LINE ADD KARNI HAI (Iske bina bot start nahi hoga):
+    await bot.start(bot_token=BOT_TOKEN)
+
     me = await bot.get_me()
     log.info(f"✅ Bot: @{me.username}")
+    log.info(f"👑 Owner: {OWNER_ID}")
+
+    restored = 0
+    failed = 0
+    for uid, u in list(users_db.items()):
+        if u.get("logged_in") and u.get("session_string"):
+            if uid in blocked_users:
+                continue
+            try:
+                await start_ub(uid, u["session_string"])
+                restored += 1
+            except Exception as e:
+                failed += 1
+                log.error(f"Restore {uid}: {e}")
+
+    log.info(f"✅ Restored {restored} userbot(s)")
+    if failed:
+        log.warning(f"⚠️ Failed to restore: {failed} userbot(s)")
+    log.info(f"🚫 Blocked users: {len(blocked_users)}")
+    log.info(f"📊 Command usage tracked: {len(command_usage_db)} users")
+    log.info("⚙️ Type .help in Telegram.")
+    await bot.run_until_disconnected()
     log.info(f"👑 Owner: {OWNER_ID}")
 
     restored = 0
@@ -4986,7 +5011,7 @@ if __name__ == '__main__':
     print("  CODERNOVA MULTI-USER USERBOT")
     print("=" * 45)
     try:
-        bot.loop.run_until_complete(main())
+        asyncio.run(main())   # <--- Yahan bot.loop.run_until_complete ki jagah asyncio.run likhna hai
     except KeyboardInterrupt:
         log.info("🛑 Stopped.")
     except Exception as e:
