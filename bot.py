@@ -5016,3 +5016,9 @@ if __name__ == '__main__':
         log.info("🛑 Stopped.")
     except Exception as e:
         log.error(f"Fatal: {e}")
+asyncio.create_task(get_ghost_image_path())
+
+# ✅ YE LINE ADD KARNI HAI (Iske bina bot connect nahi hoga):
+await bot.start(bot_token=BOT_TOKEN)
+
+me = await bot.get_me()
