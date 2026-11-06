@@ -29,7 +29,8 @@ from telethon.tl.functions.messages import EditChatTitleRequest
 from telethon.tl.functions.messages import SendReactionRequest
 from telethon.tl.types import ReactionEmoji
 from telethon.sessions import StringSession
-
+# ═══════════════ CONFIG ═══════════════
+OWNER_USERNAME = os.getenv("OWNER_USERNAME", "@Shahnawazzz_7")  # 👈 apna username daalein
 try:
     from zoneinfo import ZoneInfo
 except ImportError:
