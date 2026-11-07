@@ -39,7 +39,7 @@ except ImportError:
 # ═══════════════ CONFIG ═══════════════
 API_ID       = int(os.getenv("API_ID", "37550071"))
 API_HASH     = os.getenv("API_HASH", "eca739f28db4f12737a0d418f4a77343")
-BOT_TOKEN    = os.getenv("BOT_TOKEN", "9253610796:AAEi8DBkPbB-5VBPQY6nLaPMYd8au-VonEs")
+BOT_TOKEN    = os.getenv("BOT_TOKEN", "9178656167:AAHyd0JiIhKGbsF5Dwh6mjg1b69Jk7i7oSg")
 OWNER_ID     = int(os.getenv("OWNER_ID", "9286043112"))
 MONGO_URI    = os.getenv("MONGO_URI", "")
 
